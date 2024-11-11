@@ -1,4 +1,5 @@
 # 開発手順
+.env.sampleを.envに書き換えてください
 ```
 composer install
 ```
