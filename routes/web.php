@@ -10,6 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('hello', 'App\Http\Controllers\HelloController@index');
+Route::get('menutest', 'App\Http\Controllers\MenutestController@index');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
