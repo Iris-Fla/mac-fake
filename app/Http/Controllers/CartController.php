@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -48,6 +49,46 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
         return view('cart.view', compact('cart'));
+    }
+
+    // カートからアイテムを削除
+    public function remove(Request $request, $itemId)
+    {
+        try {
+            $cart = session()->get('cart', []);
+
+            // カートに指定されたアイテムが存在するか確認
+            if (!isset($cart[$itemId])) {
+                return response()->json([
+                    'success' => false,
+                    'message' => '指定されたアイテムが見つかりません'
+                ], 404);
+            }
+
+            // カートからアイテムを削除
+            unset($cart[$itemId]);
+            
+            // 更新したカートをセッションに保存
+            session()->put('cart', $cart);
+
+            // カートの合計金額を計算
+            $total = array_sum(array_map(function($item) {
+                return $item['price'] * $item['quantity'];
+            }, $cart));
+
+            return response()->json([
+                'success' => true,
+                'message' => 'アイテムがカートから削除されました',
+                'cart' => $cart,
+                'total' => $total
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'アイテムの削除中にエラーが発生しました'
+            ], 500);
+        }
     }
 
     // チェックアウトページ（注文確認）
