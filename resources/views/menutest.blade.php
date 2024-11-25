@@ -58,7 +58,6 @@
             </ul>
         </div>
     </div>
-
     <script>
         $(document).ready(function() {
             // フォームの送信を非同期で行う
@@ -99,7 +98,7 @@
             // カートからアイテムを削除する関数
             function removeFromCart(itemId) {
             $.ajax({
-                url: '{{ route('cart.remove') }}', // DELETE先のURL
+                url: '{{ route('cart.del') }}', // DELETE先のURL
                 method: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}', // CSRFトークン
