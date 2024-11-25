@@ -67,7 +67,6 @@ class CartController extends Controller
 
             // カートからアイテムを削除
             unset($cart[$itemId]);
-            
             // 更新したカートをセッションに保存
             session()->put('cart', $cart);
 
@@ -89,6 +88,9 @@ class CartController extends Controller
                 'message' => 'アイテムの削除中にエラーが発生しました'
             ], 500);
         }
+    }
+    public function del(Request $request, $itemId) {
+
     }
 
     // チェックアウトページ（注文確認）
