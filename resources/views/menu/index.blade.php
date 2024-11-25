@@ -41,6 +41,8 @@
             @endforeach
         </div>
 
+
+
         <!-- カートボタン -->
         <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t">
             <div class="max-w-md mx-auto">
