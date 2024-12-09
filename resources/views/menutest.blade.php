@@ -92,27 +92,35 @@
                 cartItems.empty(); // 現在のカートの内容をクリア
 
                 $.each(cart, function(itemId, item) {
-                    cartItems.append('<li>' + item.name + ' x ' + item.quantity + '</li>');
+                    cartItems.append('<li>' + item.name + ' x ' + item.quantity +
+                        ' <button class="remove-from-cart" data-item-id="' + itemId + '">削除</button></li>');
+                });
+
+                // 削除ボタンのクリックイベントを設定
+                $('.remove-from-cart').on('click', function() {
+                    var itemId = $(this).data('item-id');
+                    removeFromCart(itemId);
                 });
             }
+
             // カートからアイテムを削除する関数
             function removeFromCart(itemId) {
-            $.ajax({
-                url: '{{ route('cart.del') }}', // DELETE先のURL
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}', // CSRFトークン
-                    item_id: itemId
-                },
-                success: function(response) {
-                    alert('アイテムがカートから削除されました');
-                    updateCartContent(response.cart); // カートの内容を更新
-                },
-                error: function(xhr, status, error) {
-                    alert('カートからの削除に失敗しました');
-                }
-            });
-        }
+                $.ajax({
+                    url: '{{ route('cart.del') }}', // DELETE先のURL
+                    method: 'DELETE', // メソッドをDELETEに変更
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRFトークン
+                        item_id: itemId
+                    },
+                    success: function(response) {
+                        alert('アイテムがカートから削除されました');
+                        updateCartContent(response.cart); // カートの内容を更新
+                    },
+                    error: function(xhr, status, error) {
+                        alert('カートからの削除に失敗しました');
+                    }
+                });
+            }
         });
     </script>
 </body>

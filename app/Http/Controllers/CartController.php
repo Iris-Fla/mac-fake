@@ -43,6 +43,17 @@ class CartController extends Controller
             'cart' => session('cart') // 更新されたカートの内容も返すことができます
         ]);
     }
+    public function del(Request $request) {
+        $itemId = $request->input('item_id');
+        $cart = session()->get('cart', []);
+        unset($cart[$itemId]);
+        session()->put('cart', $cart);
+        return response()->json([
+            'message' => 'アイテムがカートから削除されました',
+            'cart' => session('cart') // 更新されたカートの内容も返すことができます
+        ]);
+    }
+
 
     // カートの内容を表示
     public function view()
@@ -50,7 +61,6 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         return view('cart.view', compact('cart'));
     }
-
     // カートからアイテムを削除
     public function remove(Request $request, $itemId)
     {
@@ -88,9 +98,6 @@ class CartController extends Controller
                 'message' => 'アイテムの削除中にエラーが発生しました'
             ], 500);
         }
-    }
-    public function del(Request $request, $itemId) {
-
     }
 
     // チェックアウトページ（注文確認）
