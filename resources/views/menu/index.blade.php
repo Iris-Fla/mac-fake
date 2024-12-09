@@ -19,7 +19,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
-                <h1 class="ml-2 text-lg font-semibold">中央駅南口店で受け取り</h1>
+                <h1 class="ml-2 text-lg font-semibold">中央駅南口店</h1>
             </div>
         </header>
 
