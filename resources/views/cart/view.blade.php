@@ -86,6 +86,44 @@
                 }
             });
 
+            // 注文ボタンのクリックイベント
+            $('button:contains("注文する")').on('click', function() {
+                // カスタムアラートを作成
+                var customAlert = $('<div>').css({
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'white',
+                    padding: '20px',
+                    borderRadius: '10px',
+                    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                    textAlign: 'center',
+                    zIndex: '1000'
+                });
+
+                // GIF画像を追加
+                var gifImage = $('<img>').attr({
+                    src: 'https://media.tenor.com/ZUzs4bi7T0YAAAAM/mutsuki.gif', // GIFファイルのパスを指定
+                    alt: '注文確定',
+                    width: '200px' // 必要に応じてサイズを調整
+                });
+
+                // テキストメッセージを追加
+                var message = $('<p>').text('注文が確定しました！');
+
+                // 閉じるボタンを追加
+                var closeButton = $('<button>').text('閉じる').on('click', function() {
+                    customAlert.remove();
+                });
+
+                // すべての要素をカスタムアラートに追加
+                customAlert.append(gifImage, message, closeButton);
+
+                // body要素にカスタムアラートを追加
+                $('body').append(customAlert);
+            });
+
             // 削除ボタンのクリックイベント
             $('.delete-item-btn').on('click', function() {
                 const itemId = $(this).data('item-id');
