@@ -194,7 +194,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +203,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2024_11_18_create_menu_items_table',2);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2024_11_18_create_menu_items_table',2),(5,'2024_11_18_create_user_data_table',3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,8 +257,37 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('Wr9ksVUsxORBtmAdaoco9lyDRMcjH3QryEjWBY9g',NULL,'172.26.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiRVpHTGxmSm53b3R3RXRzdVZKWjZjRHNPcmp0TExhVFNHeVByRnNWVyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3QvbWVudSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1731894973),('zjoeSGO8HzlWP16piqt0V1wJrlF9jjJsQ4aPb1kr',NULL,'172.31.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVThmTGZBQTFtOE50cE9adndBTEU0RmwwbTBMalVnRU1uNFRKWm5YeCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3QvY2FydCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NDoiY2FydCI7YToyOntpOjE7YTo0OntzOjQ6Im5hbWUiO3M6OToibXV0c3VraW5nIjtzOjU6InByaWNlIjtpOjExNDUxNDtzOjg6InF1YW50aXR5IjtpOjE0O3M6NToiaW1hZ2UiO3M6MTg6ImltYWdlcy9tdXRzdWtpLnBuZyI7fWk6MjthOjQ6e3M6NDoibmFtZSI7czo5OiJtdXR1a2luVFYiO3M6NToicHJpY2UiO2k6ODEwO3M6ODoicXVhbnRpdHkiO3M6MToiMSI7czo1OiJpbWFnZSI7czoyMDoiaW1hZ2VzL211dHVraW5nMi5wbmciO319fQ==',1732502104);
+INSERT INTO `sessions` VALUES ('RVYy0t0VxBi8HBlxv9j77BKiw2eCIW53QSGmBgfH',NULL,'172.19.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoibDRHbVhJdnZOQnlpN1JueHdad1phNDZMV0M2em9IdFBwTEEzTFZTRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9sb2NhbGhvc3QvbWVudXRlc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjQ6ImNhcnQiO2E6MDp7fX0=',1733708117);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_data`
+--
+
+DROP TABLE IF EXISTS `user_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_data` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_data_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_data`
+--
+
+LOCK TABLES `user_data` WRITE;
+/*!40000 ALTER TABLE `user_data` DISABLE KEYS */;
+INSERT INTO `user_data` VALUES (1,'mutsuki','mutsuki@mutu.com','mutsuki',NULL,NULL);
+/*!40000 ALTER TABLE `user_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -300,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-25  2:40:09
+-- Dump completed on 2024-12-09  2:37:00
