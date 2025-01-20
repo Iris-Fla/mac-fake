@@ -104,7 +104,7 @@
 
                 // GIF画像を追加
                 var gifImage = $('<img>').attr({
-                    src: 'https://media.tenor.com/ZUzs4bi7T0YAAAAM/mutsuki.gif', // GIFファイルのパスを指定
+                    src: 'https://telopict.com/wp-content/uploads/2021/10/240_yubisashi_yoko.gif', // GIFファイルのパスを指定
                     alt: '注文確定',
                     width: '200px' // 必要に応じてサイズを調整
                 });
