@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.40, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.39, for Linux (x86_64)
 --
 -- Host: mysql    Database: laravel
 -- ------------------------------------------------------
@@ -169,7 +169,7 @@ CREATE TABLE `menu_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,6 +178,7 @@ CREATE TABLE `menu_items` (
 
 LOCK TABLES `menu_items` WRITE;
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
+INSERT INTO `menu_items` VALUES (1,'ぽてぃと','揚げたての生成Aiのような味',514,'images/potate.webp','side',NULL,NULL),(2,'iQuu','まるで果汁',19,'images/iquu.webp','side',NULL,NULL),(3,'うまいバーガー','おいしいよ～',1919,'images/burger.webp','burger',NULL,NULL),(4,'コラー','炭酸は抜いたで。',72,'images/coke.webp','side',NULL,NULL),(5,'素人チキン','初心者が作りました',3381865,'images/chicken.webp','side',NULL,NULL),(6,'ふつうのパテ','おそらく、普通',81,'images/pate.webp','side',NULL,NULL),(7,'こげたパテ','黒め',114,'images/darkpate.webp','side',NULL,NULL),(8,'バンズ','はさみたい方に',8181115,'images/banzu.webp','side',NULL,NULL);
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +257,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('CZv7erxH4eISfoSjkBDXIxKCVDAYtMFzjbLl6YrC',NULL,'172.18.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiQnJtNTV1UmVOdjNtOVBEa0VoaWN2TUI2T2ltM3RISW9SbjhRNUtFNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTY6Imh0dHA6Ly9sb2NhbGhvc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1737336219),('RVYy0t0VxBi8HBlxv9j77BKiw2eCIW53QSGmBgfH',NULL,'172.19.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoibDRHbVhJdnZOQnlpN1JueHdad1phNDZMV0M2em9IdFBwTEEzTFZTRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9sb2NhbGhvc3QvbWVudXRlc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjQ6ImNhcnQiO2E6MDp7fX0=',1733708117);
+INSERT INTO `sessions` VALUES ('9bhjHY58Um7ruvRPtRUIGeR5EdcaJzXfJHKZY8ST',1,'172.19.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0','YTo2OntzOjY6Il90b2tlbiI7czo0MDoidWRLNUM1NFlRWjZVRVBlRkRaTWJ4NWMxdmdKb3I0a25aRjVteUVMRiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vbG9jYWxob3N0L21lbnUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NDoiY2FydCI7YTo3OntpOjU7YTo0OntzOjQ6Im5hbWUiO3M6MTU6Iue0oOS6uuODgeOCreODsyI7czo1OiJwcmljZSI7aTozMzgxODY1O3M6ODoicXVhbnRpdHkiO2k6MjtzOjU6ImltYWdlIjtzOjE5OiJpbWFnZXMvY2hpY2tlbi53ZWJwIjt9aToyO2E6NDp7czo0OiJuYW1lIjtzOjQ6ImlRdXUiO3M6NToicHJpY2UiO2k6MTk7czo4OiJxdWFudGl0eSI7czoxOiIxIjtzOjU6ImltYWdlIjtzOjE2OiJpbWFnZXMvaXF1dS53ZWJwIjt9aTozO2E6NDp7czo0OiJuYW1lIjtzOjIxOiLjgYbjgb7jgYTjg5Djg7zjgqzjg7wiO3M6NToicHJpY2UiO2k6MTkxOTtzOjg6InF1YW50aXR5IjtzOjE6IjEiO3M6NToiaW1hZ2UiO3M6MTg6ImltYWdlcy9idXJnZXIud2VicCI7fWk6NDthOjQ6e3M6NDoibmFtZSI7czo5OiLjgrPjg6njg7wiO3M6NToicHJpY2UiO2k6NzI7czo4OiJxdWFudGl0eSI7czoxOiIxIjtzOjU6ImltYWdlIjtzOjE2OiJpbWFnZXMvY29rZS53ZWJwIjt9aTo2O2E6NDp7czo0OiJuYW1lIjtzOjE4OiLjgbXjgaTjgYbjga7jg5Hjg4YiO3M6NToicHJpY2UiO2k6ODE7czo4OiJxdWFudGl0eSI7czoxOiIxIjtzOjU6ImltYWdlIjtzOjE2OiJpbWFnZXMvcGF0ZS53ZWJwIjt9aTo3O2E6NDp7czo0OiJuYW1lIjtzOjE1OiLjgZPjgZLjgZ/jg5Hjg4YiO3M6NToicHJpY2UiO2k6MTE0O3M6ODoicXVhbnRpdHkiO3M6MToiMSI7czo1OiJpbWFnZSI7czoyMDoiaW1hZ2VzL2RhcmtwYXRlLndlYnAiO31pOjg7YTo0OntzOjQ6Im5hbWUiO3M6OToi44OQ44Oz44K6IjtzOjU6InByaWNlIjtpOjgxODExMTU7czo4OiJxdWFudGl0eSI7czoxOiIxIjtzOjU6ImltYWdlIjtzOjE3OiJpbWFnZXMvYmFuenUud2VicCI7fX19',1737338338),('CZv7erxH4eISfoSjkBDXIxKCVDAYtMFzjbLl6YrC',NULL,'172.18.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','YTozOntzOjY6Il90b2tlbiI7czo0MDoiQnJtNTV1UmVOdjNtOVBEa0VoaWN2TUI2T2ltM3RISW9SbjhRNUtFNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTY6Imh0dHA6Ly9sb2NhbGhvc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1737336219),('RVYy0t0VxBi8HBlxv9j77BKiw2eCIW53QSGmBgfH',NULL,'172.19.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoibDRHbVhJdnZOQnlpN1JueHdad1phNDZMV0M2em9IdFBwTEEzTFZTRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9sb2NhbGhvc3QvbWVudXRlc3QiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjQ6ImNhcnQiO2E6MDp7fX0=',1733708117);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-20  1:26:04
+-- Dump completed on 2025-01-20  2:00:53
