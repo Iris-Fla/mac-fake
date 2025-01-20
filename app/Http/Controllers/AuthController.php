@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserData;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,10 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $user = UserData::where('email', $credentials['email'])->first();
+
+        if ($user && $user->password === $credentials['password']) {
+            Auth::login($user);
             $request->session()->regenerate();
             return redirect()->intended('/menu');
         }
